@@ -1,0 +1,26 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: rabbit-microservice
+  rabbitmq:
+    host: "localhost"
+    port: 9097
+    username: "guest"
+    password: "guest"
+    template:
+      retry:
+        enabled: true
+        initial-interval: "2s"
+  amqp:
+    deserialization:
+      trust:
+        all: true
+
+#Custom Queue Properties
+rabbit:
+  queue:
+    exchange: "cypcode-rabbit-exchange"
+    name: "cypcode-subscriber-queue"
+    route-key: "subs-rk"
+
